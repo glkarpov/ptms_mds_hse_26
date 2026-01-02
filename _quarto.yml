@@ -20,7 +20,7 @@ website:
         - program.md
         # - homework.md 
     title: false
-  repo-url: https://github.com/glkarpov/ptms_bi_hse_25
+  repo-url: https://github.com/glkarpov/ptms_mds_hse_26
   repo-branch: main
   repo-actions: [edit]
   search: 
