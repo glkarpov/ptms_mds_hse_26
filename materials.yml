@@ -2,8 +2,3 @@
   number: 1
   materials: /lectures/lecture_1.pdf
   notes: /notes/1.pdf
-
-- title: Условная и полная вероятность. Независимость событий. Теорема Байеса.
-  number: 2
-  materials: /lectures/lecture_2.pdf
-  notes: /notes/2.pdf
