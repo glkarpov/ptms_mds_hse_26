@@ -1,0 +1,97 @@
+/* Color palette */
+:root {
+  --primary: #6366f1;      /* Indigo */
+  --secondary: #8b5cf6;    /* Purple */
+  --accent: #ec4899;       /* Pink */
+}
+
+/* Body background - white */
+body {
+  background: white !important;
+  min-height: 100vh;
+}
+
+/* Main content area styling */
+.quarto-document-content {
+  background: white !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  padding: 2rem !important;
+  margin: 1rem !important;
+}
+
+/* Headings with gradient - emoji stays pure and colorful */
+#quarto-content h1,
+.quarto-document-content h1,
+main h1 {
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
+  /* Don't apply gradient to the whole h1 to preserve emoji colors */
+  color: var(--primary) !important;
+}
+
+#quarto-content h2,
+.quarto-document-content h2,
+main h2 {
+  color: var(--primary) !important;
+  font-weight: 600 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.5rem !important;
+  border-bottom: 2px solid rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Links */
+#quarto-content a,
+.quarto-document-content a,
+main a {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+#quarto-content a:hover,
+.quarto-document-content a:hover,
+main a:hover {
+  color: var(--secondary) !important;
+  text-decoration: underline !important;
+}
+
+/* Button-style links */
+#quarto-content a[href*="program.md"],
+.quarto-document-content a[href*="program.md"],
+main a[href*="program.md"] {
+  display: inline-block !important;
+  padding: 1rem 2rem !important;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 0.75rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+  margin: 2rem 0 !important;
+}
+
+#quarto-content a[href*="program.md"]:hover,
+.quarto-document-content a[href*="program.md"]:hover,
+main a[href*="program.md"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4) !important;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Listing sections styling */
+#listing-team .quarto-grid-item.card,
+#listing-materials .quarto-grid-item.card {
+  transition: all 0.3s ease !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+}
+
+#listing-team .quarto-grid-item.card:hover,
+#listing-materials .quarto-grid-item.card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2) !important;
+  border-color: var(--primary) !important;
+}

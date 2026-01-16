@@ -1,0 +1,40 @@
+# Quarto
+_site/
+/.quarto/
+/.luarc.json
+
+# Build outputs
+*.aux
+*.log
+*.fdb_latexmk
+*.fls
+*.flsa
+*.synctex.gz
+/.pdfsync/
+
+# Private/Internal files - НЕ публикуются
+_internal/
+_private/
+internal/
+exam/
+seminars/
+*_internal.*
+*_solution.*
+*_answers.*
+*_shuffle.*
+*_solver.*
+
+# Personal files
+*.xlsx
+*.xls
+*.docx
+*.doc
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db

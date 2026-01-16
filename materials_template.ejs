@@ -4,10 +4,11 @@
     <p>
         <% 
             var links = [];
-            if(item.materials) { links.push('<a href="' + item.materials + '">📄 Презентация</a>'); }
-            if(item.longread) { links.push('<a href="' + item.longread + '">📜 Лонгрид</a>'); }
+            if(item.lectures) { links.push('<a href="' + item.lectures + '">📄 Презентация</a>'); }
+            if(item.lectures_en) { links.push('<a href="' + item.lectures_en + '">📄 Presentation</a>'); }
             if(item.notes) { links.push('<a href="' + item.notes + '">📝 Заметки</a>'); }
-            if(item.seminar) { links.push('<a href="' + item.seminar + '">👷‍♂️ Seminar</a>'); }
+            if(item.notes_1group) { links.push('<a href="' + item.notes_1group + '">📝 Заметки 1 поток</a>'); }
+            if(item.notes_2group) { links.push('<a href="' + item.notes_2group + '">📝 Заметки 2 поток</a>'); }
             if(item.youtube) { links.push('<a href="' + item.youtube + '">▶️ Youtube</a>'); }
             if(item.download) { links.push('<a href="' + item.download + '">💿 Скачать</a>'); }
             print(links.join(' • '));

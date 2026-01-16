@@ -1,6 +1,5 @@
 ---
-title: 🚀 Материалы
-nav_order: 2
+title: 📚 Материалы
 listing:
   - id: materials
     contents: 
@@ -10,4 +9,4 @@ listing:
 ---
 
 :::{#materials}
-::: 
+:::

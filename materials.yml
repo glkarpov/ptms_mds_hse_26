@@ -1,4 +1,10 @@
 - title: Вероятностное пространство. Аксиоматическое определение вероятности.
   number: 1
-  materials: /lectures/lecture_1.pdf
+  lectures: /lectures/lecture_1.pdf
   notes: /notes/notes_class_1.pdf
+
+- title: Классическая вероятность. Комбинаторные методы.
+  number: 2
+  lectures: /lectures/lecture_2.pdf
+  notes_1group: /notes/class_2_group1.pdf
+  notes_2group: /notes/class_2_group2.pdf

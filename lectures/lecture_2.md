@@ -1,7 +1,7 @@
 ---
 title: "Теория вероятностей и математическая статистика"
-subtitle: "Условная вероятность. Полная вероятность. Формула Байеса."
-institute: "ВШБ Бизнес-информатика"
+subtitle: "Классическая вероятность. Комбинаторные методы."
+institute: "ФКН ВШЭ"
 author: "Глеб Карпов"
 format: 
     beamer:
@@ -15,280 +15,241 @@ format:
         include-in-header: ../files/xeheader.tex  # Custom LaTeX commands and preamble
 ---
 
-## Мыслительный эксперимент
-
-\begin{tikzpicture}
-    % Рисуем квадратный блок
-    \draw[thick, fill=lightgray] (0,0) rectangle (6,6);
-    
-    % Рисуем 9 кругов в сетке 3x3 с нумерацией по столбцам
-    % Круг 1 (левый верхний)
-    \fill[white] (1,5) circle (0.8);
-    \draw[thick] (1,5) circle (0.8);
-    \node at (1,5) {$1$};
-    
-    % Круг 2 (левый средний)
-    \fill[white] (1,3) circle (0.8);
-    \draw[thick] (1,3) circle (0.8);
-    \node at (1,3) {2};
-    
-    % Круг 3 (левый нижний)
-    \fill[white] (1,1) circle (0.8);
-    \draw[thick] (1,1) circle (0.8);
-    \node at (1,1) {3};
-    
-    % Круг 4 (средний верхний)
-    \fill[white] (3,5) circle (0.8);
-    \draw[thick] (3,5) circle (0.8);
-    \node at (3,5) {4};
-    
-    % Круг 5 (средний средний)
-    \fill[white] (3,3) circle (0.8);
-    \draw[thick] (3,3) circle (0.8);
-    \node at (3,3) {5};
-    
-    % Круг 6 (средний нижний)
-    \fill[white] (3,1) circle (0.8);
-    \draw[thick] (3,1) circle (0.8);
-    \node at (3,1) {6};
-    
-    % Круг 7 (правый верхний)
-    \fill[white] (5,5) circle (0.8);
-    \draw[thick] (5,5) circle (0.8);
-    \node at (5,5) {7};
-    
-    % Круг 8 (правый средний)
-    \fill[white] (5,3) circle (0.8);
-    \draw[thick] (5,3) circle (0.8);
-    \node at (5,3) {8};
-    
-    % Круг 9 (правый нижний)
-    \fill[white] (5,1) circle (0.8);
-    \draw[thick] (5,1) circle (0.8);
-    \node at (5,1) {9};
-\end{tikzpicture}
-
-## Мыслительный эксперимент
-
-\begin{tikzpicture}
-    % Рисуем квадратный блок
-    \draw[thick, fill=lightgray] (0,0) rectangle (6,6);
-    
-    % Рисуем 9 кругов в сетке 3x3 с нумерацией по столбцам
-    % Круг 1 (левый верхний)
-    \fill[white] (1,5) circle (0.8);
-    \draw[thick] (1,5) circle (0.8);
-    \node at (1,5) {1};
-    \fill[green!80!black] (1,5) circle (0.15); % Зеленая точка
-    
-    % Круг 2 (левый средний)
-    \fill[white] (1,3) circle (0.8);
-    \draw[thick] (1,3) circle (0.8);
-    \node at (1,3) {2};
-    \fill[green!80!black] (1,3) circle (0.15); % Зеленая точка
-    \fill[blue!80!black] (1.2,2.8) circle (0.15); % Синяя точка
-    
-    % Круг 3 (левый нижний)
-    \fill[white] (1,1) circle (0.8);
-    \draw[thick] (1,1) circle (0.8);
-    \node at (1,1) {3};
-    \fill[green!80!black] (1,1) circle (0.15); % Зеленая точка
-    \fill[blue!80!black] (1.2,0.8) circle (0.15); % Синяя точка
-    
-    % Круг 4 (средний верхний)
-    \fill[white] (3,5) circle (0.8);
-    \draw[thick] (3,5) circle (0.8);
-    \node at (3,5) {4};
-    \fill[green!80!black] (3,5) circle (0.15); % Зеленая точка
-    \fill[red!80!black] (3.2,4.8) circle (0.15); % Красная точка
-    
-    % Круг 5 (средний средний)
-    \fill[white] (3,3) circle (0.8);
-    \draw[thick] (3,3) circle (0.8);
-    \node at (3,3) {5};
-    \fill[red!80!black] (3,3) circle (0.15); % Красная точка
-    
-    % Круг 6 (средний нижний)
-    \fill[white] (3,1) circle (0.8);
-    \draw[thick] (3,1) circle (0.8);
-    \node at (3,1) {6};
-    \fill[orange!90] (3,1) circle (0.15); % Фиолетовая точка
-    
-    % Круг 7 (правый верхний)
-    \fill[white] (5,5) circle (0.8);
-    \draw[thick] (5,5) circle (0.8);
-    \node at (5,5) {7};
-    \fill[green!80!black] (5,5) circle (0.15); % Зеленая точка
-    \fill[red!80!black] (5.2,4.8) circle (0.15); % Красная точка
-    
-    % Круг 8 (правый средний)
-    \fill[white] (5,3) circle (0.8);
-    \draw[thick] (5,3) circle (0.8);
-    \node at (5,3) {8};
-    \fill[red!80!black] (5,3) circle (0.15); % Красная точка
-    
-    % Круг 9 (правый нижний)
-    \fill[white] (5,1) circle (0.8);
-    \draw[thick] (5,1) circle (0.8);
-    \node at (5,1) {9};
-    \fill[orange!90] (5,1) circle (0.15); % Фиолетовая точка
-    
-    % Легенда
-    \node[right] at (6.5,5) {\textcolor{green!80!black}{$\bullet$} Зеленая группа: 1,2,3,4,7};
-    \node[right] at (6.5,4) {\textcolor{red!80!black}{$\bullet$} Красная группа: 4,5,7,8};
-    \node[right] at (6.5,3) {\textcolor{blue!80!black}{$\bullet$} Синяя группа: 2,3};
-    \node[right] at (6.5,2) {\textcolor{purple!80!black}{$\bullet$} Оранжевая группа: 6,9};
-\end{tikzpicture}
-
-
-## Условная вероятность
-
-\begin{tikzpicture}
-    % Левый круг - область определения (пространство событий)
-    \draw[thick, fill=blue!10] (0,0) circle (2);
-    \node at (0,0) {$\mathcal{F}$};
-    
-    % Правый круг - область значений (вещественные числа от 0 до 1)
-    \draw[thick, fill=green!10] (10,0) circle (1.0);
-    \node at (10,0) {$[0,1]$};
-    
-    % Стрелка от левого к правому кругу (изогнутая)
-    \draw[thick, ->] (2.2,1) .. controls (5, 2.5) and (5,2.5) .. (8.8,1) node[midway, above] {$P(X)$};
-
-    \draw[thick, ->] (2.2,0.5) .. controls (5, 1.5) and (5,1.5) .. (8.8,0.5) node[midway, above] {$P(X|A)$};
-
-    \draw[thick, ->] (2.2,0) .. controls (5, 0) and (5,0) .. (8.8,0) node[midway, above] {$P(X|B)$};
-
-    \draw[thick, ->] (2.2,-0.5) .. controls (5, -1.5) and (5,-1.5) .. (8.8,-0.5) node[midway, above] {$P(X|C)$};
-
-    \draw[thick, ->] (2.2,-1) .. controls (5, -2.5) and (5,-2.5) .. (8.8,-1) node[midway, above] {$\vdots$};
-\end{tikzpicture}
-
-## Условная вероятность
-- :::{.callout-definition}
-Условная вероятность пересчитывается через обычную вероятность в виде:
-$$
-    P(A | B) = \frac{P(A \cap B)}{P(B)}
-$$
-:::
-
-- :::{.callout-tip title="Формула Байеса"}
-$$
-    P(A | B) = \frac{P(B | A) \cdot P(A)}{P(B)}
-$$
-:::
-
-## Условная вероятность
-При каждом зафиксированном значении параметра (условия) $P(X|K)$ - отдельная самостоятельная вероятностная функция. Для каждой справедливы указанные ранее свойства:
-
-* $\forall X, K \in \mathcal{F}: \; \; 0 \leq P(X|K) \leq 1$
-
-* $\forall K \in \mathcal{F}: \; \; P(\Omega|K) = 1$. Easy to show: $P(\Omega|K) = \frac{P(\Omega \cap K)}{P(K)} = (K \subseteq \Omega) = \frac{P(K)}{P(K)} = 1$
-
-* Аддитивность вероятности:
-$$
-    \forall X, \, Y, \, K \in \mathcal{F}: \, X \cap Y = \varnothing, \, P\left((X \cup Y) | K \right) = P(X|K) + P(Y|K)
-$$
-
-## Независимость событий
-
+## Вероятность
+### Комплиментарные события и формула включений исключений
 ::: {.columns}
-::: {.column width="60%"}
-\begin{tikzpicture}
-    \draw[thick, fill=lightgray] (0,0) rectangle (6,4);
-
-    % Круг 1
-    \fill[white] (1,3) circle (0.6);
-    \draw[thick] (1,3) circle (0.6);
-    \node at (1,3) {$\omega_1$};
-    \fill[green!80!black] (1.3,3) circle (0.12);
-
-    % Круг 2
-    \fill[white] (1,1) circle (0.6);
-    \draw[thick] (1,1) circle (0.6);
-    \node at (1,1) {$\omega_2$};
-    \fill[green!80!black] (1.3,1) circle (0.12);
-
-    % Круг 3
-    \fill[white] (3,3) circle (0.6);
-    \draw[thick] (3,3) circle (0.6);
-    \node at (3,3) {$\omega_3$};
-    \fill[green!80!black] (3.3,3.2) circle (0.12);
-    \fill[red!80!black] (3.3,2.8) circle (0.12);
-
-    % Круг 4
-    \fill[white] (3,1) circle (0.6);
-    \draw[thick] (3,1) circle (0.6);
-    \node at (3,1) {$\omega_4$};
-    \fill[green!80!black] (3.3,1.2) circle (0.12);
-    \fill[red!80!black] (3.3,0.8) circle (0.12);
-
-    % Круг 5
-    \fill[white] (5,3) circle (0.6);
-    \draw[thick] (5,3) circle (0.6);
-    \node at (5,3) {$\omega_5$};
-    \fill[red!80!black] (5.3,3) circle (0.12);
-
-    % Круг 6
-    \fill[white] (5,1) circle (0.6);
-    \draw[thick] (5,1) circle (0.6);
-    \node at (5,1) {$\omega_6$};
-    \fill[red!80!black] (5.3,1.2) circle (0.12);
-    \fill[blue!80!black] (5.3,0.8) circle (0.12);
-
-    % Круг 7
-    \fill[white] (2,2) circle (0.6);
-    \draw[thick] (2,2) circle (0.6);
-    \node at (2,2) {$\omega_7$};
-
-    % Круг 8
-    \fill[white] (4,2) circle (0.6);
-    \draw[thick] (4,2) circle (0.6);
-    \node at (4,2) {$\omega_8$};
-    \fill[blue!80!black] (4.3,2) circle (0.12);
-
-    % Легенда
-    \node[above] at (1,4.5) {\textcolor{green!80!black}{$\bullet$} $G = \{ 1, \,2, \, 3, \,4 \}$};
-    \node[above] at (4,4.5) {\textcolor{red!80!black}{$\bullet$} $R = \{ 3, \,4, \, 5, \,6 \}$};
-    \node[above] at (6.5,4.5) {\textcolor{blue!80!black}{$\bullet$} $B = \{ 6, \,8 \}$};
+::: {.column width="40%"}
+\begin{tikzpicture}[scale=1.2]
+  % Прямоугольное пространство выборки Ω
+  \draw[thick, black] (0,0) rectangle (5,4);
+  \node[above] at (3,4) {\Large $\Omega$};
+  
+  % Событие A (круг слева)
+  \draw[thick, blue, fill=blue!20] (1.5,2) circle (1.3);
+  \node[blue] at (0.7,2.8) {\Large $A$};
+  
+  % Событие B (круг справа)
+  \draw[thick, red, fill=red!20] (3.5,2) circle (1.0);
+  \node[red] at (4.3,2.8) {\Large $B$};
+  
+  % Пересечение A ∩ B (закрашено более темным цветом)
+  \begin{scope}
+    \clip (1.5,2) circle (1.3);
+    \fill[purple!40] (3.5,2) circle (1.0);
+  \end{scope}
+  
+  % Подпись пересечения
+  \node[purple, font=\large] at (3,2) {$A \cap B$};
+  
+  % Подписи областей
+  \node[blue] at (0.4,1.0) {$\Omega \setminus A$};
+  \node[red] at (4.6,1.0) {$\Omega \setminus B$};ß
+  \node[black] at (0.7,3.5) {$(A \cup B)^c$};
 \end{tikzpicture}
 :::
 
-::: {.column width="40%"}
-* $P(G) = 0.5$, $P(R) = 0.5$, $P(B) = 0.25$
+::: {.column width="55%"}
+\begin{itemize}
+\item Свойство: Если $A \in \mathcal{F}$, то $P(A) + P(\Omega \backslash A) = 1$.
 
-:::{.callout-question}
-$P(G|R), \, P(R|G) = ?$
+События $A$ и $\bar{A} = \Omega \backslash A$ такие, что $A \cap \bar{A} = \varnothing$, и $\Omega = A \cup \bar{A}$, откуда при помощи свойств вероятности получим: $P(\Omega) = P(A \cup \bar{A}) = P(A) + P(\Omega \backslash A) = 1$
+
+\item Формула включений-исключений: Если $A, B \in \mathcal{F}$, то 
+$$
+    P(A \cup B) = P(A)  + P(B) - P(A \cap B)
+$$
+Событие $A$ - объединение непересекающихся $A \backslash B$ и $A \cap B$, следовательно $P(A)=P(A \backslash B) + P(A \cap B)$ и симметрично $P(B)=P(B \backslash A) + P(A \cap B)$.
+\begin{gather*}
+P(A)+P(B) =P(A \backslash B)+2 P(A \cap B)+P(B \backslash A) \\
+=P((A \backslash B) \cup(A \cap B) \cup(B \backslash A))+P(A \cap B) \\
+=P(A \cup B)+P(A \cap B) .
+\end{gather*}
+
+
+\item Свойство: Если $A, B \in \mathcal{F}$ and $A \subseteq B$, то $P(A) \leq P(B)$.
+Показать просто: $P(B) = P(A) + P(B \backslash A) \geq P(A)$.
+\end{itemize}
+:::
 :::
 
-* $P(G|R) = 0.5, \, P(R|G) = 0.5$
+## Классическая вероятность
+- Самая первая модель вероятностного эксперимента, суть которой состоит в предположении о равной вероятности элементарных исходов случайного эксперимента. Под это подходят многие дискретные задачи, связанные со случайным выбором карт, шариков, людей, бросками кубиков и монеток, *etc*.
+- Формализуем: $\Omega = \{ \omega_1, \; \ldots, \; \omega_n \}$, $P(\{\omega_1\}) = \ldots = P(\{\omega_n\}) = p$.
+- Применим свойства вероятности, чтобы получить интуитивно понятный результат о вероятности элементарного исхода:
+\begin{gather*}
+    \Omega = \{ \omega_1 \} \cup \cdots \cup \{ \omega_n \} = \bigcup\limits_{i=1}^{n} \{ \omega_i \} \\
+    P(\Omega) = P \left( \bigcup\limits_{i=1}^{n} \{ \omega_i \} \right) = \sum\limits_{i=1}^{n} P(\{ \omega_i \}) = n \cdot p = 1 \rightarrow p = \frac{1}{n}
+\end{gather*}
 
-:::{.callout-question}
-$P(R|B), \, P(B|R) = ?$
-:::
+## Классическая вероятность
+### Первая важная формула
+- Без потери общности предположим, что некое событие $A$ состоит из $k \leq n$ элементарных исходов, $A = \{\omega_1, \; \ldots, \; \omega_k \}$. Нас интересует $P(A)$.
+- Получим формулу для вероятности $A$:
+\begin{gather*}
+    A = \{ \omega_1 \} \cup \cdots \cup \{ \omega_k \} = \bigcup\limits_{i=1}^{k} \{ \omega_i \} \\
+    P(A) = P \left( \bigcup\limits_{i=1}^{k} \{ \omega_i \} \right) = \sum\limits_{i=1}^{k} P(\{ \omega_i \}) = k \cdot p = \frac{k}{n} = \frac{|A|}{|\Omega|}
+\end{gather*}
 
-*  $P(R|B) = 0.5, \, P(B|R) = 0.25$
-
-
-:::
-:::
-* Наблюдаем: $P(B) = P(B|R)$, $P(R) = P(R|B)$. Коэффициент ожидания этих событий a.k.a. вероятность не зависит от того, происходит ли одновременно другое событие или нет. Мы называем такие события **независимыми**.
-* Более формально, чтобы называть $A$ и $B$ независимыми, должно выполняться:
-$$
-    P(A | B) = P(A) \text{ И } P(B | A) = P(B), \text{ при } P(A), \, P(B) > 0.
-$$
-
-## Независимость событий
-
-* Если немного поработаем с идеей о независимости, получим более удобное определение:
-$$
-    P(A) = P(A|B) = \frac{P \left( A \cap B \right)}{P(B)} \longrightarrow P \left( A \cap B \right) = P(A) \cdot P(B)
-$$
+## Комбинаторная вероятность
+### Basic principle of counting
 
 :::{.callout-definition}
-События $A$ и $B$ из одного вероятностного пространства $\left(\Omega, \mathcal{F}, P \right)$ называются \textit{независимыми}, если:
-$$
-    P \left( A \cap B \right) = P(A) \cdot P(B),
-$$
-и *зависимыми* в обратном случае.
+Если $r$ экспериментов должны быть проведены таким образом, что первый может привести к любому из $n_1$ возможных исходов; и если для каждого из этих $n_1$ возможных исходов есть $n_2$ возможных исхода второго эксперимента; и если для каждого из возможных исходов первых двух экспериментов есть $n_3$ возможных исхода третьего эксперимента; и если ..., то всего существует $n_1 \cdot n_2 \cdots n_r$ возможных исходов $r$ экспериментов.
 :::
+\begin{tikzpicture}[scale=0.6]
+    % Определяем размеры и позиции (уменьшены)
+    \def\sectorwidth{2.5}
+    \def\sectorheight{6}
+    \def\boxheight{0.8}
+    \def\boxwidth{2}
+    \def\spacing{1.2}
+    
+    % Левый сектор A (3 блока)
+    \draw[thick, fill=blue!20] (0,0) rectangle (\sectorwidth,\sectorheight);
+    \node[above, font=\small] at (\sectorwidth/2,\sectorheight) {Exp A};
+    
+    % Средний сектор B (4 блока)
+    \draw[thick, fill=green!20] (3.5,0) rectangle (3.5+\sectorwidth,\sectorheight);
+    \node[above, font=\small] at (3.5+\sectorwidth/2,\sectorheight) {Exp B};
+    
+    % Правый сектор C (3 блока)
+    \draw[thick, fill=orange!20] (7,0) rectangle (7+\sectorwidth,\sectorheight);
+    \node[above, font=\small] at (7+\sectorwidth/2,\sectorheight) {Exp C};
+    
+    % Блоки в левом секторе A (3 штуки)
+    \foreach \i in {1,2,3} {
+        \def\ypos{\sectorheight - \i*\spacing - \boxheight/2}
+        \draw[thick, fill=white] (0.2,\ypos-\boxheight/2) rectangle (0.2+\boxwidth,\ypos+\boxheight/2);
+        \node[font=\tiny] at (0.2+\boxwidth/2,\ypos) {A\i};
+    }
+    
+    % Блоки в среднем секторе B (4 штуки)
+    \foreach \i in {1,2,3,4} {
+        \def\ypos{\sectorheight - \i*\spacing - \boxheight/2}
+        \draw[thick, fill=white] (3.7,\ypos-\boxheight/2) rectangle (3.7+\boxwidth,\ypos+\boxheight/2);
+        \node[font=\tiny] at (3.7+\boxwidth/2,\ypos) {B\i};
+    }
+    
+    % Блоки в правом секторе C (3 штуки)
+    \foreach \i in {1,2,3} {
+        \def\ypos{\sectorheight - \i*\spacing - \boxheight/2}
+        \draw[thick, fill=white] (7.2,\ypos-\boxheight/2) rectangle (7.2+\boxwidth,\ypos+\boxheight/2);
+        \node[font=\tiny] at (7.2+\boxwidth/2,\ypos) {C\i};
+    }
+    
+    % Линии A → B (все блоки A соединяются со всеми блоками B)
+    \foreach \i in {1,2,3} {
+        \def\yposA{\sectorheight - \i*\spacing - \boxheight/2}
+        \foreach \j in {1,2,3,4} {
+            \def\yposB{\sectorheight - \j*\spacing - \boxheight/2}
+            \draw[thin, gray] (0.2+\boxwidth,\yposA) -- (3.7,\yposB);
+        }
+    }
+    
+    % Линии B → C (все блоки B соединяются со всеми блоками C)
+    \foreach \i in {1,2,3,4} {
+        \def\yposB{\sectorheight - \i*\spacing - \boxheight/2}
+        \foreach \j in {1,2,3} {
+            \def\yposC{\sectorheight - \j*\spacing - \boxheight/2}
+            \draw[thin, gray] (3.7+\boxwidth,\yposB) -- (7.2,\yposC);
+        }
+    }
+\end{tikzpicture}
+
+## Комбинаторная вероятность
+### Перестановки
+
+- **Мотивация**: Сколько разных упорядоченных последовательностей получается из множества $\{ a, b, c \}$
+
+- $P^r_n = n \cdot (n-1) \cdot (n-2) \cdot \ldots \cdot (n - r + 1)$
+
+## Комбинаторная вероятность
+### Перестановки: примеры
+
+- :::{.callout-question}
+**Случайная выборка чисел**. Пусть популяция состоит из десяти цифр 0, 1, ..., 9. Каждая последовательность из пяти цифр представляет выборку размера $r = 5$. Какова вероятность того, что пять последовательных случайных цифр все различны?
+:::
+- $P = \frac{P_{10}^5}{10^5} = 0.3024$.
+
+
+
+## Комбинаторная вероятность
+### Комбинации
+
+- **Мотивация**: Извлечь три элемента из множества $\{ A, B, C, D, E \}$
+
+- В общем случае, поскольку $n(n − 1)···(n− k + 1)$ представляет количество различных способов, которыми группа из $k$ элементов может быть выбрана из $n$ элементов, когда порядок выбора важен, и поскольку каждая группа из $k$ элементов будет подсчитана $k!$ раз в этом подсчете, следует, что количество различных групп из $k$ элементов, которые могут быть образованы из множества $n$ элементов, равно
+$$
+\frac{n(n-1) \cdots(n-k+1)}{k!}=\frac{n!}{(n-k)!k!}
+$$
+
+- :::{.callout-definition}
+Мы определяем $C_n^k$, для $k \leq n$, как
+$$
+C_n^k = \frac{n!}{(n-k)!k!},
+$$
+и говорим, что $C_n^k$ представляет количество возможных комбинаций (коллекций, множеств) размера $k$, полученных из $n$ объектов. Порядок следования элементов в данном случае не считается важным.
+:::
+
+## Комбинаторная вероятность
+### Комбинации: пример
+
+Часто задачи подходят под модель извлечения шариков из мешка.
+
+**Пример**: Мешок содержит 15 шариков, из которых 10 красных и 5 белых. Из мешка выбирают 4 шарика.
+
+Здесь есть неоднозначность: например, если при одном извлечении я выбираю четыре красных шарика, а при другом извлечении четыре других красных шарика, считаются ли эти выборки одинаковыми или нет?
+
+Мы будем предполагать, что это не одинаковые выборки. Например, мы можем представить, что шарики пронумерованы, так что мы можем различать шарики одного цвета. Такой способ мышления очень полезен для вычисления вероятностей в классической схеме.
+
+## Комбинаторная вероятность
+### Комбинации: пример
+
+- 10 красных, 5 белых, пронумерованных шариков
+
+- :::{.callout-question}
+Сколько различных выборок (размера 4) возможно?
+:::
+- Порядок не важен, но номера важны, поэтому мы выбираем 4 элемента из множества 10 + 5 элементов. Следовательно, ответ: $C_{15}^4 = 1365$.
+
+- :::{.callout-question}
+Сколько выборок (размера 4) состоят полностью из красных шариков?
+:::
+- Порядок не важен, но номера важны, мы выбираем 4 элемента из множества красных шариков. Следовательно, ответ: $C_{10}^4 = 210$.
+
+## Комбинаторная вероятность
+### Комбинации: пример
+
+- 10 красных, 5 белых, пронумерованных шариков
+
+- :::{.callout-question} 
+Сколько выборок содержат 2 красных и 2 белых шарика?
+:::
+- Мы можем выбрать 2 пронумерованных красных шарика $C_{10}^2$ способами и 2 пронумерованных белых шарика $C_5^2$ способами. Ни один выбор не влияет на другой, поэтому ответ: $C_{10}^2 \cdot C_5^2 = 45 \cdot 10 = 450$.
+
+- :::{.callout-question}
+Сколько выборок (размера 4) содержат ровно 3 красных шарика?
+:::
+- Мы можем выбрать 3 пронумерованных красных шарика $C_{10}^3$ способами и 1 пронумерованный белый шарик $C_5^1$ способами. Ни один выбор не влияет на другой, поэтому ответ: $C_{10}^3 \cdot C_5^1 = 120 \cdot 5 = 600$.
+
+## Комбинаторная вероятность
+### Комбинации: пример
+
+- :::{.callout-question}
+Сколько выборок (размера 4) содержат не менее 3 красных шариков?
+:::
+
+- Это количество выборок с 3 красными плюс количество выборок с 4 красными. Мы можем выбрать 4 пронумерованных красных шарика $C_{10}^4$ способами и 0 пронумерованных белых шариков $C_5^0$ способами. Ни один выбор не влияет на другой, поэтому ответ: $C_{10}^4 \cdot C_5^0 = 210 \cdot 1 = 210$.
+Из предыдущего примера, есть 600 способов выбрать выборки с ровно 3 красными шариками, поэтому наш ответ: $600 + 210 = 810$.
+
+## Комбинаторная вероятность
+### Смешанные задачи подсчета
+
+- 10 красных, 5 белых, пронумерованных шариков
+
+- :::{.callout-question}
+Сколько выборок (размера 4) содержат хотя бы один красный шарик?
+:::
+- Это $C_{10}^1 \cdot C_5^3 + C_{10}^2 \cdot C_5^2 + C_{10}^3 \cdot C_5^1 + C_{10}^4 \cdot C_5^0$, что равно $10 \cdot 10 + 45 \cdot 10 + 120 \cdot 5 + 210 \cdot 1 = 100 + 450 + 600 + 210 = 1360$.
+
+Это также общее количество выборок (1365) минус количество выборок без красных шариков, которое равно $C_{10}^0 \cdot C_5^4 = 5$.
