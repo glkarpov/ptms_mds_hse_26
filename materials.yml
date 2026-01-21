@@ -8,3 +8,8 @@
   lectures: /lectures/lecture_2.pdf
   notes_1group: /notes/class_2_group1.pdf
   notes_2group: /notes/class_2_group2.pdf
+
+  - title: Условная вероятность. Независимость событий.
+  number: 3
+  lectures: /lectures/lecture_3.pdf
+  notes: /notes/notes_class_3.pdf
