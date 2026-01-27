@@ -13,3 +13,7 @@
   number: 3
   lectures: /lectures/lecture_3.pdf
   notes: /notes/notes_class_3.pdf
+
+- title: Полная вероятность. Теорема Байеса.
+  number: 4
+  notes: /notes/notes_class_4.pdf
