@@ -17,3 +17,14 @@
 - title: Полная вероятность. Теорема Байеса.
   number: 4
   notes: /notes/notes_class_4.pdf
+
+- title: Полная вероятность. Теорема Байеса. Практическая сессия.
+  number: 5
+  notes_1group: /notes/class_5_group1.pdf
+  notes_2group: /notes/class_5_group2.pdf
+
+- title: Концепция случайной величины. Дискретные случайные величины.
+  number: 6
+  lectures: /lectures/lecture_6.pdf
+  notes_1group: /notes/class_6_group1.pdf
+  notes_2group: /notes/class_6_group2.pdf
