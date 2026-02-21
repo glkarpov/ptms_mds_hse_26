@@ -28,3 +28,19 @@
   lectures: /lectures/lecture_6.pdf
   notes_1group: /notes/class_6_group1.pdf
   notes_2group: /notes/class_6_group2.pdf
+
+- title: Характеристики случайных величин. Биномиальное распределение.
+  number: 7
+  lectures: /lectures/lecture_7.pdf
+  notes: /notes/notes_class_7.pdf
+
+- title: Случайные величины. Биномиальное распределение. Практическая сессия.
+  number: 8
+  lectures: /lectures/lecture_8.pdf
+  notes_1group: /notes/class_8_group1.pdf
+  notes_2group: /notes/class_8_group2.pdf
+
+- title: Многомерные дискретные случайные величины.
+  number: 9
+  lectures: /lectures/lecture_9.pdf
+  notes: /notes/notes_class_9.pdf
