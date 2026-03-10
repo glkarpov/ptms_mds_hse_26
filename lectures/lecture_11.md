@@ -1155,8 +1155,8 @@ $$
 
 - Третья область $\forall x > 3$:
 $$
-    \int\limits_{-\infty}^{x}f_X(t)dt = \int\limits_{-\infty}^{0}\textcolor{red}{f_X(t)}dt + \int\limits_{0}^{3}\textcolor{violet}{f_X(t)}dt + \int\limits_{3}^{+\infty} \textcolor{blue}{f_X(t)} dt =
-     \int\limits_{-\infty}^{0}\textcolor{red}{0} \, dt + \int\limits_{0}^{3}\textcolor{violet}{\frac{1 t^2}{9}}dt + \int\limits_{3}^{+\infty}\textcolor{blue}{0} \, dt = 1
+    \int\limits_{-\infty}^{x}f_X(t)dt = \int\limits_{-\infty}^{0}\textcolor{red}{f_X(t)}dt + \int\limits_{0}^{3}\textcolor{violet}{f_X(t)}dt + \int\limits_{3}^{x} \textcolor{blue}{f_X(t)} dt =
+     \int\limits_{-\infty}^{0}\textcolor{red}{0} \, dt + \int\limits_{0}^{3}\textcolor{violet}{\frac{1 t^2}{9}}dt + \int\limits_{3}^{x}\textcolor{blue}{0} \, dt = 1
 $$
 
 
