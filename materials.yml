@@ -44,3 +44,20 @@
   number: 9
   lectures: /lectures/lecture_9.pdf
   notes: /notes/notes_class_9.pdf
+
+- title: Линейные комбинации случайных величин. Ковариация и корреляция.
+  number: 10
+  lectures: /lectures/lecture_10.pdf
+  notes_1group: /notes/class_10_group1.pdf
+  notes_2group: /notes/class_10_group2.pdf
+
+- title: Непрерывные случайные величины.
+  number: 11
+  lectures: /lectures/lecture_11.pdf
+  notes: /notes/notes_class_11.pdf
+
+- title: Характеристики непрерывных случайных величин.
+  number: 12
+  lectures: /lectures/lecture_12.pdf
+  notes_1group: /notes/class_12_group1.pdf
+  notes_2group: /notes/class_12_group2.pdf
