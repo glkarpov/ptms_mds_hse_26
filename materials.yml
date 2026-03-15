@@ -61,3 +61,7 @@
   lectures: /lectures/lecture_12.pdf
   notes_1group: /notes/class_12_group1.pdf
   notes_2group: /notes/class_12_group2.pdf
+
+- title: Консультация. Дискретные случайные величины. Практическая сессия.
+  number: 13
+  notes: /notes/notes_class_13.pdf

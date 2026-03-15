@@ -1,0 +1,14 @@
+```{=html}
+<% for (const item of items) { %>
+    <h3>Лист <%= item.number %></h3>
+    <p>
+        <% 
+            var links = [];
+            if(item.problem_sets) { links.push('<a href="' + item.problem_sets + '">🌚 Problem set</a>'); }
+            if(item.problem_sets_review) { links.push('<a href="' + item.problem_sets_review + '">🌝 Answers and review</a>'); }
+            print(links.join(' • '));
+        %>
+    </p>
+    <p><%= item.title %></p>
+<% } %>
+```
