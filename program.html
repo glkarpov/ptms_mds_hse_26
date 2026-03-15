@@ -96,6 +96,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-homework .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-number','listing-problem_sets_review',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-title","listing-number","listing-problem_sets_review"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-homework'] = new List('listing-homework', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -170,17 +198,11 @@ window.Quarto = {
     <p>
         <a href="./lectures/lecture_1.pdf">📄 Презентация</a> • <a href="./notes/notes_class_1.pdf">📝 Заметки</a>
     </p>
-    <p>
-        
-    </p>
     <p>Вероятностное пространство. Аксиоматическое определение вероятности.</p>
 
     <h3 class="anchored">Занятие 2</h3>
     <p>
         <a href="./lectures/lecture_2.pdf">📄 Презентация</a> • <a href="./notes/class_2_group1.pdf">📝 Заметки 1 поток</a> • <a href="./notes/class_2_group2.pdf">📝 Заметки 2 поток</a>
-    </p>
-    <p>
-        
     </p>
     <p>Классическая вероятность. Комбинаторные методы.</p>
 
@@ -188,17 +210,11 @@ window.Quarto = {
     <p>
         <a href="./lectures/lecture_3.pdf">📄 Презентация</a> • <a href="./notes/notes_class_3.pdf">📝 Заметки</a>
     </p>
-    <p>
-        
-    </p>
     <p>Условная вероятность. Независимость событий.</p>
 
     <h3 class="anchored">Занятие 4</h3>
     <p>
         <a href="./notes/notes_class_4.pdf">📝 Заметки</a>
-    </p>
-    <p>
-        
     </p>
     <p>Полная вероятность. Теорема Байеса.</p>
 
@@ -206,17 +222,11 @@ window.Quarto = {
     <p>
         <a href="./notes/class_5_group1.pdf">📝 Заметки 1 поток</a> • <a href="./notes/class_5_group2.pdf">📝 Заметки 2 поток</a>
     </p>
-    <p>
-        
-    </p>
     <p>Полная вероятность. Теорема Байеса. Практическая сессия.</p>
 
     <h3 class="anchored">Занятие 6</h3>
     <p>
         <a href="./lectures/lecture_6.pdf">📄 Презентация</a> • <a href="./notes/class_6_group1.pdf">📝 Заметки 1 поток</a> • <a href="./notes/class_6_group2.pdf">📝 Заметки 2 поток</a>
-    </p>
-    <p>
-        
     </p>
     <p>Концепция случайной величины. Дискретные случайные величины.</p>
 
@@ -224,17 +234,11 @@ window.Quarto = {
     <p>
         <a href="./lectures/lecture_7.pdf">📄 Презентация</a> • <a href="./notes/notes_class_7.pdf">📝 Заметки</a>
     </p>
-    <p>
-        
-    </p>
     <p>Характеристики случайных величин. Биномиальное распределение.</p>
 
     <h3 class="anchored">Занятие 8</h3>
     <p>
         <a href="./lectures/lecture_8.pdf">📄 Презентация</a> • <a href="./notes/class_8_group1.pdf">📝 Заметки 1 поток</a> • <a href="./notes/class_8_group2.pdf">📝 Заметки 2 поток</a>
-    </p>
-    <p>
-        
     </p>
     <p>Случайные величины. Биномиальное распределение. Практическая сессия.</p>
 
@@ -242,17 +246,11 @@ window.Quarto = {
     <p>
         <a href="./lectures/lecture_9.pdf">📄 Презентация</a> • <a href="./notes/notes_class_9.pdf">📝 Заметки</a>
     </p>
-    <p>
-        
-    </p>
     <p>Многомерные дискретные случайные величины.</p>
 
     <h3 class="anchored">Занятие 10</h3>
     <p>
         <a href="./lectures/lecture_10.pdf">📄 Презентация</a> • <a href="./notes/class_10_group1.pdf">📝 Заметки 1 поток</a> • <a href="./notes/class_10_group2.pdf">📝 Заметки 2 поток</a>
-    </p>
-    <p>
-        
     </p>
     <p>Линейные комбинации случайных величин. Ковариация и корреляция.</p>
 
@@ -260,19 +258,29 @@ window.Quarto = {
     <p>
         <a href="./lectures/lecture_11.pdf">📄 Презентация</a> • <a href="./notes/class_11.pdf">📝 Заметки</a>
     </p>
-    <p>
-        
-    </p>
     <p>Непрерывные случайные величины.</p>
 
     <h3 class="anchored">Занятие 12</h3>
     <p>
         <a href="./lectures/lecture_12.pdf">📄 Презентация</a> • <a href="./notes/class_12_group1.pdf">📝 Заметки 1 поток</a> • <a href="./notes/class_12_group2.pdf">📝 Заметки 2 поток</a>
     </p>
-    <p>
-        
-    </p>
     <p>Характеристики непрерывных случайных величин.</p>
+
+    <h3 class="anchored">Занятие 13</h3>
+    <p>
+        <a href="./notes/notes_class_13.pdf">📝 Заметки</a>
+    </p>
+    <p>Консультация. Дискретные случайные величины. Практическая сессия.</p>
+
+<div class="listing-no-matching d-none">Нет подходящих элементов</div>
+</div>
+<div id="listing-homework" class="quarto-listing quarto-listing-container-custom">
+
+    <h3 class="anchored">Лист 1</h3>
+    <p>
+        <a href="./assignments/ha_topic_4_review.pdf">🌝 Answers and review</a>
+    </p>
+    <p>Дискретные случайные величины. Распределения Бернулли и биномиальное.</p>
 
 <div class="listing-no-matching d-none">Нет подходящих элементов</div>
 </div>
