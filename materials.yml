@@ -62,6 +62,17 @@
   notes_1group: /notes/class_12_group1.pdf
   notes_2group: /notes/class_12_group2.pdf
 
-- title: Консультация. Дискретные случайные величины. Практическая сессия.
+- title: Нормальное распределение.
   number: 13
-  notes: /notes/notes_class_13.pdf
+  lectures: /lectures/lecture_13.pdf
+  notes: /notes/class_13.pdf
+
+- title: Нормальное распределение. Практическая сессия.
+  number: 14
+  notes_1group: /notes/class_14_group1.pdf
+  notes_2group: /notes/class_14_group2.pdf
+
+- title: Введение в задачу статистики. Выборочные распределения.
+  number: 15
+  lectures: /lectures/lecture_15.pdf
+  notes: /notes/class_15.pdf

@@ -1,0 +1,15 @@
+```{=html}
+<% for (const item of items) { %>
+    <h3>Консультация <%= item.number %></h3>
+    <p>
+        <%
+            var links = [];
+            if(item.lectures) { links.push('<a href="' + item.lectures + '">📄 Презентация</a>'); }
+            if(item.lectures_en) { links.push('<a href="' + item.lectures_en + '">📄 Presentation</a>'); }
+            if(item.notes) { links.push('<a href="' + item.notes + '">📝 Заметки</a>'); }
+            print(links.join(' • '));
+        %>
+    </p>
+    <p><%= item.title %></p>
+<% } %>
+```

@@ -1,0 +1,9 @@
+- title: Дискретные случайные величины. Практическая сессия.
+  number: 1
+  lectures: /lectures/lecture_add_1.pdf
+  notes: /notes/notes_add_class_1.pdf
+
+- title: Центральная предельная теорема
+  number: 2
+  lectures: /lectures/lecture_add_2.pdf
+  notes: /notes/notes_add_class_2.pdf
