@@ -107,12 +107,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:title" content="Sampling distribution">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://ptms-mds-26.glebkarpov.com/notebooks/sampling_distribution_files/figure-html/cell-4-output-1.png">
-<meta property="og:image:height" content="684">
+<meta property="og:image:height" content="682">
 <meta property="og:image:width" content="968">
 <meta name="twitter:title" content="Sampling distribution">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://ptms-mds-26.glebkarpov.com/notebooks/sampling_distribution_files/figure-html/cell-4-output-1.png">
-<meta name="twitter:image-height" content="684">
+<meta name="twitter:image-height" content="682">
 <meta name="twitter:image-width" content="968">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -147,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="5b82b8f2" class="cell">
+<div id="5b82b8f2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -158,9 +158,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>What do you see on the following picture?</p>
 <p>This is a visual representation of the fact that each function from the sample, e.g.&nbsp;sample mean, also has a random nature! And each time you generate new sample, the value of the chosen function will be different.</p>
 <p>Try to change <code>sample_size</code> variable and see what happens.</p>
-<div id="32c695b6" class="cell">
+<div id="32c695b6" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">100000</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> stats.randint(<span class="dv">1</span>,<span class="dv">7</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> r.mean()</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>var <span class="op">=</span> r.var()</span>
@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    sample_mean_realizations[i] <span class="op">=</span> np.mean(sample_realization)</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    rv_realizations[i] <span class="op">=</span> r.rvs()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e700155f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:701}}" data-outputid="212c0cf7-a970-4920-b3a0-20795c0f91f8">
+<div id="e700155f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:701}}" data-outputid="212c0cf7-a970-4920-b3a0-20795c0f91f8" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ax1.scatter(np.arange(n_draws), rv_realizations, label<span class="op">=</span><span class="vs">r'single RV realization, </span><span class="dv">$</span><span class="vs">x</span><span class="dv">$</span><span class="vs">'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ax1.axhline(r.mean(), color<span class="op">=</span><span class="st">'green'</span>, label <span class="op">=</span> <span class="st">'True mean'</span>)</span>
@@ -199,9 +199,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>If on the previous picture we present just a few different realiations, in the following we generate much more samples and try to approximate the probability density function by plotting a histogram.</p>
 <p>As well, try to change <code>sample_size</code> in below and see what happens with the histogram.</p>
-<div id="1e56f420" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">500</span></span>
+<div id="1e56f420" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>n_bins <span class="op">=</span> <span class="dv">50</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> stats.randint(<span class="dv">1</span>,<span class="dv">7</span>)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>sample_mean_realizations <span class="op">=</span> np.empty(n_draws)</span>
@@ -212,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    sample_mean_realizations[i] <span class="op">=</span> np.mean(sample_realization)</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    rv_realizations[i] <span class="op">=</span> r.rvs()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="63544f2f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:699}}" data-outputid="d09ef103-49bd-4c4f-cb4c-80e40ff6f336">
+<div id="63544f2f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:699}}" data-outputid="d09ef103-49bd-4c4f-cb4c-80e40ff6f336" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(rv_realizations, bins<span class="op">=</span>n_bins, ax<span class="op">=</span>ax1).grid()</span>
@@ -244,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="38f45daa" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> stats.norm(<span class="dv">5000</span>, <span class="dv">200</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> r.mean()</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>var <span class="op">=</span> r.var()</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>std <span class="op">=</span> r.std()</span>
@@ -273,13 +273,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="vs">r'Different random realizations of a single random variable </span><span class="dv">$</span><span class="vs">X </span><span class="dv">\s</span><span class="vs">im N</span><span class="dv">$</span><span class="kw">(</span><span class="vs">{},{}</span><span class="kw">)</span><span class="vs">'</span>.<span class="bu">format</span>(mu,var))</span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="vs">r'Different random realizations of sample mean </span><span class="dv">$\b</span><span class="vs">ar{X}</span><span class="dv">$</span><span class="vs">, sample size = %d'</span> <span class="op">%</span> sample_size)</span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sampling_distribution_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
 </div>
 <div id="58afecbd" class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">10000</span></span>
@@ -311,17 +304,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Histogram for realizations of a single RV'</span>)</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="vs">r'Histogram for realizations of sample mean </span><span class="dv">$\b</span><span class="vs">ar{X}</span><span class="dv">$</span><span class="vs">, sample size = %d'</span> <span class="op">%</span> sample_size)</span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipython-input-3742480432.py:13: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
-  ax1.legend()</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sampling_distribution_files/figure-html/cell-10-output-2.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
 </div>
 </section>
 <section id="the-third-example-sample-variance-from-dice-rolls" class="level3">
@@ -330,139 +312,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This is a visual representation of the fact that sample variance also has a random nature! Each time you generate a new sample, the value of the sample variance will be different.</p>
 <p>Try to change <code>sample_size</code> variable and see what happens.</p>
 <div id="404570f0" class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">100000</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> stats.randint(<span class="dv">1</span>,<span class="dv">7</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> r.mean()</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>var <span class="op">=</span> r.var()</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>sample_variance_realizations <span class="op">=</span> np.empty(n_draws)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>rv_realizations <span class="op">=</span> np.empty(n_draws)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_draws):</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    sample_realization <span class="op">=</span> r.rvs(size<span class="op">=</span>sample_size)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    sample_variance_realizations[i] <span class="op">=</span> np.var(sample_realization, ddof<span class="op">=</span><span class="dv">1</span>)  <span class="co"># unbiased estimator</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    rv_realizations[i] <span class="op">=</span> r.rvs()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">100000</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> stats.randint(<span class="dv">1</span>,<span class="dv">7</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> r.mean()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>var <span class="op">=</span> r.var()</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>sample_variance_realizations <span class="op">=</span> np.empty(n_draws)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>rv_realizations <span class="op">=</span> np.empty(n_draws)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_draws):</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    sample_realization <span class="op">=</span> r.rvs(size<span class="op">=</span>sample_size)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    sample_variance_realizations[i] <span class="op">=</span> np.var(sample_realization, ddof<span class="op">=</span><span class="dv">1</span>)  <span class="co"># unbiased estimator</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    rv_realizations[i] <span class="op">=</span> r.rvs()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="3b16ad4d" class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ax1.scatter(np.arange(n_draws), rv_realizations, label<span class="op">=</span><span class="vs">r'single RV realization, </span><span class="dv">$</span><span class="vs">x</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ax1.axhline(r.mean(), color<span class="op">=</span><span class="st">'green'</span>, label <span class="op">=</span> <span class="st">'True mean'</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>ax2.scatter(np.arange(n_draws), sample_variance_realizations, label<span class="op">=</span><span class="vs">r'Sample variance realization, </span><span class="dv">$</span><span class="vs">s</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ax2.axhline(r.var(), color<span class="op">=</span><span class="st">'green'</span>, label <span class="op">=</span> <span class="st">'True variance'</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>ylim <span class="op">=</span> ax1.get_ylim()</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(ylim)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>ax2.legend()</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="vs">r'Different random realizations of a single random variable </span><span class="dv">$</span><span class="vs">X</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="vs">r'Different random realizations of sample variance </span><span class="dv">$</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">, sample size = %d'</span> <span class="op">%</span> sample_size)</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ax1.scatter(np.arange(n_draws), rv_realizations, label<span class="op">=</span><span class="vs">r'single RV realization, </span><span class="dv">$</span><span class="vs">x</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>ax1.axhline(r.mean(), color<span class="op">=</span><span class="st">'green'</span>, label <span class="op">=</span> <span class="st">'True mean'</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>ax2.scatter(np.arange(n_draws), sample_variance_realizations, label<span class="op">=</span><span class="vs">r'Sample variance realization, </span><span class="dv">$</span><span class="vs">s</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>ax2.axhline(r.var(), color<span class="op">=</span><span class="st">'green'</span>, label <span class="op">=</span> <span class="st">'True variance'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>ylim <span class="op">=</span> ax1.get_ylim()</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(ylim)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>ax2.legend()</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="vs">r'Different random realizations of a single random variable </span><span class="dv">$</span><span class="vs">X</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="vs">r'Different random realizations of sample variance </span><span class="dv">$</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">, sample size = %d'</span> <span class="op">%</span> sample_size)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If on the previous picture we present just a few different realizations, in the following we generate much more samples and try to approximate the probability density function by plotting a histogram.</p>
 <p>As well, try to change <code>sample_size</code> in below and see what happens with the histogram.</p>
 <div id="2c669899" class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">500</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>n_bins <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> stats.randint(<span class="dv">1</span>,<span class="dv">7</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>sample_variance_realizations <span class="op">=</span> np.empty(n_draws)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>rv_realizations <span class="op">=</span> np.empty(n_draws)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_draws):</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    sample_realization <span class="op">=</span> r.rvs(size<span class="op">=</span>sample_size)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    sample_variance_realizations[i] <span class="op">=</span> np.var(sample_realization, ddof<span class="op">=</span><span class="dv">1</span>)  <span class="co"># unbiased estimator</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    rv_realizations[i] <span class="op">=</span> r.rvs()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>n_bins <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> stats.randint(<span class="dv">1</span>,<span class="dv">7</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>sample_variance_realizations <span class="op">=</span> np.empty(n_draws)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>rv_realizations <span class="op">=</span> np.empty(n_draws)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_draws):</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    sample_realization <span class="op">=</span> r.rvs(size<span class="op">=</span>sample_size)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    sample_variance_realizations[i] <span class="op">=</span> np.var(sample_realization, ddof<span class="op">=</span><span class="dv">1</span>)  <span class="co"># unbiased estimator</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    rv_realizations[i] <span class="op">=</span> r.rvs()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="f254491a" class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(rv_realizations, bins<span class="op">=</span>n_bins, ax<span class="op">=</span>ax1).grid()</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>sns.histplot(sample_variance_realizations, bins<span class="op">=</span>n_bins, ax<span class="op">=</span>ax2).grid()</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>counts, _, _ <span class="op">=</span> plt.hist(sample_variance_realizations, bins<span class="op">=</span>n_bins, alpha<span class="op">=</span><span class="fl">0.0</span>)  <span class="co"># just in order to find out the scaling coefficient for PDF</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># For large sample sizes, sample variance is approximately normal</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># E[S^2] = σ², Var[S^2] ≈ 2σ⁴/(n-1) for normal distribution</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># For uniform distribution, the approximation is less accurate but still useful</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>x_space <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span> <span class="op">*</span> var, <span class="dv">1000</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>ax2.plot(x_space, np.<span class="bu">max</span>(counts) <span class="op">*</span> stats.norm.pdf(x_space, var, np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>))) <span class="op">*</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), label<span class="op">=</span><span class="st">'Normal approximation'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Histogram for realizations of a single RV'</span>)</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="vs">r'Histogram for realizations of sample variance </span><span class="dv">$</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">, sample size = %d'</span> <span class="op">%</span> sample_size)</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>ax2.axvline(var, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'True variance'</span>)</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>ax2.legend()</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(rv_realizations, bins<span class="op">=</span>n_bins, ax<span class="op">=</span>ax1).grid()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>sns.histplot(sample_variance_realizations, bins<span class="op">=</span>n_bins, ax<span class="op">=</span>ax2).grid()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>counts, _, _ <span class="op">=</span> plt.hist(sample_variance_realizations, bins<span class="op">=</span>n_bins, alpha<span class="op">=</span><span class="fl">0.0</span>)  <span class="co"># just in order to find out the scaling coefficient for PDF</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># For large sample sizes, sample variance is approximately normal</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># E[S^2] = σ², Var[S^2] ≈ 2σ⁴/(n-1) for normal distribution</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># For uniform distribution, the approximation is less accurate but still useful</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>x_space <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span> <span class="op">*</span> var, <span class="dv">1000</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>ax2.plot(x_space, np.<span class="bu">max</span>(counts) <span class="op">*</span> stats.norm.pdf(x_space, var, np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>))) <span class="op">*</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), label<span class="op">=</span><span class="st">'Normal approximation'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Histogram for realizations of a single RV'</span>)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="vs">r'Histogram for realizations of sample variance </span><span class="dv">$</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">, sample size = %d'</span> <span class="op">%</span> sample_size)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>ax2.axvline(var, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'True variance'</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>ax2.legend()</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="the-fourth-example-sample-variance-from-normal-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="the-fourth-example-sample-variance-from-normal-distribution">The fourth example: sample variance from normal distribution</h3>
 <div id="7c595955" class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> stats.norm(<span class="dv">5000</span>, <span class="dv">200</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">30</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> r.mean()</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>var <span class="op">=</span> r.var()</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>std <span class="op">=</span> r.std()</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>sample_variance_realizations <span class="op">=</span> np.empty(n_draws)</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>rv_realizations <span class="op">=</span> np.empty(n_draws)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_draws):</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    sample_realization <span class="op">=</span> r.rvs(size<span class="op">=</span>sample_size)</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    sample_variance_realizations[i] <span class="op">=</span> np.var(sample_realization, ddof<span class="op">=</span><span class="dv">1</span>)  <span class="co"># unbiased estimator</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    rv_realizations[i] <span class="op">=</span> r.rvs()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> stats.norm(<span class="dv">5000</span>, <span class="dv">200</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> r.mean()</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>var <span class="op">=</span> r.var()</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>std <span class="op">=</span> r.std()</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>sample_variance_realizations <span class="op">=</span> np.empty(n_draws)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>rv_realizations <span class="op">=</span> np.empty(n_draws)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_draws):</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    sample_realization <span class="op">=</span> r.rvs(size<span class="op">=</span>sample_size)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    sample_variance_realizations[i] <span class="op">=</span> np.var(sample_realization, ddof<span class="op">=</span><span class="dv">1</span>)  <span class="co"># unbiased estimator</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    rv_realizations[i] <span class="op">=</span> r.rvs()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="30f1d215" class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ax1.scatter(np.arange(n_draws), rv_realizations, label<span class="op">=</span><span class="vs">r'single RV realization, </span><span class="dv">$</span><span class="vs">x</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>ax1.axhline(r.mean(), color<span class="op">=</span><span class="st">'green'</span>, label <span class="op">=</span> <span class="st">'True mean'</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>ax1.axhline(r.mean() <span class="op">+</span> std, color<span class="op">=</span><span class="st">'blue'</span>, label <span class="op">=</span> <span class="vs">r'</span><span class="dv">$\m</span><span class="vs">u </span><span class="op">+</span><span class="vs"> </span><span class="dv">\s</span><span class="vs">igma</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>ax1.axhline(r.mean() <span class="op">-</span> std, color<span class="op">=</span><span class="st">'blue'</span>, label <span class="op">=</span> <span class="vs">r'</span><span class="dv">$\m</span><span class="vs">u - </span><span class="dv">\s</span><span class="vs">igma</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>ax2.scatter(np.arange(n_draws), sample_variance_realizations, label<span class="op">=</span><span class="vs">r'Sample variance realization, </span><span class="dv">$</span><span class="vs">s</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>ax2.axhline(r.var(), color<span class="op">=</span><span class="st">'green'</span>, label <span class="op">=</span> <span class="st">'True variance'</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>ax2.axhline(r.var() <span class="op">+</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), color<span class="op">=</span><span class="st">'blue'</span>, label <span class="op">=</span> <span class="vs">r'</span><span class="dv">$\s</span><span class="vs">igma</span><span class="dv">^</span><span class="vs">2 </span><span class="op">+</span><span class="vs"> </span><span class="dv">\s</span><span class="vs">qrt{Var</span><span class="kw">(</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="kw">)</span><span class="vs">}</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>ax2.axhline(r.var() <span class="op">-</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), color<span class="op">=</span><span class="st">'blue'</span>, label <span class="op">=</span> <span class="vs">r'</span><span class="dv">$\s</span><span class="vs">igma</span><span class="dv">^</span><span class="vs">2 - </span><span class="dv">\s</span><span class="vs">qrt{Var</span><span class="kw">(</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="kw">)</span><span class="vs">}</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>ax1.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>ax2.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="vs">r'Different random realizations of a single random variable </span><span class="dv">$</span><span class="vs">X </span><span class="dv">\s</span><span class="vs">im N</span><span class="dv">$</span><span class="kw">(</span><span class="vs">{},{}</span><span class="kw">)</span><span class="vs">'</span>.<span class="bu">format</span>(mu,var))</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="vs">r'Different random realizations of sample variance </span><span class="dv">$</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">, sample size = %d'</span> <span class="op">%</span> sample_size)</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ax1.scatter(np.arange(n_draws), rv_realizations, label<span class="op">=</span><span class="vs">r'single RV realization, </span><span class="dv">$</span><span class="vs">x</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ax1.axhline(r.mean(), color<span class="op">=</span><span class="st">'green'</span>, label <span class="op">=</span> <span class="st">'True mean'</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>ax1.axhline(r.mean() <span class="op">+</span> std, color<span class="op">=</span><span class="st">'blue'</span>, label <span class="op">=</span> <span class="vs">r'</span><span class="dv">$\m</span><span class="vs">u </span><span class="op">+</span><span class="vs"> </span><span class="dv">\s</span><span class="vs">igma</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>ax1.axhline(r.mean() <span class="op">-</span> std, color<span class="op">=</span><span class="st">'blue'</span>, label <span class="op">=</span> <span class="vs">r'</span><span class="dv">$\m</span><span class="vs">u - </span><span class="dv">\s</span><span class="vs">igma</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>ax2.scatter(np.arange(n_draws), sample_variance_realizations, label<span class="op">=</span><span class="vs">r'Sample variance realization, </span><span class="dv">$</span><span class="vs">s</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>ax2.axhline(r.var(), color<span class="op">=</span><span class="st">'green'</span>, label <span class="op">=</span> <span class="st">'True variance'</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>ax2.axhline(r.var() <span class="op">+</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), color<span class="op">=</span><span class="st">'blue'</span>, label <span class="op">=</span> <span class="vs">r'</span><span class="dv">$\s</span><span class="vs">igma</span><span class="dv">^</span><span class="vs">2 </span><span class="op">+</span><span class="vs"> </span><span class="dv">\s</span><span class="vs">qrt{Var</span><span class="kw">(</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="kw">)</span><span class="vs">}</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>ax2.axhline(r.var() <span class="op">-</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), color<span class="op">=</span><span class="st">'blue'</span>, label <span class="op">=</span> <span class="vs">r'</span><span class="dv">$\s</span><span class="vs">igma</span><span class="dv">^</span><span class="vs">2 - </span><span class="dv">\s</span><span class="vs">qrt{Var</span><span class="kw">(</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="kw">)</span><span class="vs">}</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>ax1.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>ax2.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="vs">r'Different random realizations of a single random variable </span><span class="dv">$</span><span class="vs">X </span><span class="dv">\s</span><span class="vs">im N</span><span class="dv">$</span><span class="kw">(</span><span class="vs">{},{}</span><span class="kw">)</span><span class="vs">'</span>.<span class="bu">format</span>(mu,var))</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="vs">r'Different random realizations of sample variance </span><span class="dv">$</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">, sample size = %d'</span> <span class="op">%</span> sample_size)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="94a56125" class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">10000</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>n_bins <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>sample_variance_realizations <span class="op">=</span> np.empty(n_draws)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>rv_realizations <span class="op">=</span> np.empty(n_draws)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_draws):</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    sample_realization <span class="op">=</span> r.rvs(size<span class="op">=</span>sample_size)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    sample_variance_realizations[i] <span class="op">=</span> np.var(sample_realization, ddof<span class="op">=</span><span class="dv">1</span>)  <span class="co"># unbiased estimator</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    rv_realizations[i] <span class="op">=</span> r.rvs()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n_draws <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>n_bins <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>sample_variance_realizations <span class="op">=</span> np.empty(n_draws)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>rv_realizations <span class="op">=</span> np.empty(n_draws)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_draws):</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    sample_realization <span class="op">=</span> r.rvs(size<span class="op">=</span>sample_size)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    sample_variance_realizations[i] <span class="op">=</span> np.var(sample_realization, ddof<span class="op">=</span><span class="dv">1</span>)  <span class="co"># unbiased estimator</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    rv_realizations[i] <span class="op">=</span> r.rvs()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="74b975a8" class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(rv_realizations, bins<span class="op">=</span>n_bins, ax<span class="op">=</span>ax1).grid()</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>sns.histplot(sample_variance_realizations, bins<span class="op">=</span>n_bins, ax<span class="op">=</span>ax2).grid()</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>counts, _, _ <span class="op">=</span> plt.hist(sample_variance_realizations, bins<span class="op">=</span>n_bins, alpha<span class="op">=</span><span class="fl">0.0</span>)  <span class="co"># just in order to find out the scaling coefficient for PDF</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># For normal distribution, (n-1)*S²/σ² ~ χ²(n-1)</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># So S² ~ (σ²/(n-1)) * χ²(n-1)</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># E[S²] = σ², Var[S²] = 2σ⁴/(n-1)</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>x_space <span class="op">=</span> np.linspace(var <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), var <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), <span class="dv">1000</span>)</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>ax2.plot(x_space, np.<span class="bu">max</span>(counts) <span class="op">*</span> stats.norm.pdf(x_space, var, np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>))) <span class="op">*</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), label<span class="op">=</span><span class="st">'Normal approximation'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Histogram for realizations of a single RV'</span>)</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="vs">r'Histogram for realizations of sample variance </span><span class="dv">$</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">, sample size = %d'</span> <span class="op">%</span> sample_size)</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>ax2.axvline(var, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'True variance'</span>)</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>ax2.legend()</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(rv_realizations, bins<span class="op">=</span>n_bins, ax<span class="op">=</span>ax1).grid()</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>sns.histplot(sample_variance_realizations, bins<span class="op">=</span>n_bins, ax<span class="op">=</span>ax2).grid()</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>counts, _, _ <span class="op">=</span> plt.hist(sample_variance_realizations, bins<span class="op">=</span>n_bins, alpha<span class="op">=</span><span class="fl">0.0</span>)  <span class="co"># just in order to find out the scaling coefficient for PDF</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># For normal distribution, (n-1)*S²/σ² ~ χ²(n-1)</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># So S² ~ (σ²/(n-1)) * χ²(n-1)</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># E[S²] = σ², Var[S²] = 2σ⁴/(n-1)</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>x_space <span class="op">=</span> np.linspace(var <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), var <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), <span class="dv">1000</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>ax2.plot(x_space, np.<span class="bu">max</span>(counts) <span class="op">*</span> stats.norm.pdf(x_space, var, np.sqrt(<span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>))) <span class="op">*</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="dv">2</span> <span class="op">*</span> var<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (sample_size <span class="op">-</span> <span class="dv">1</span>)), label<span class="op">=</span><span class="st">'Normal approximation'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Histogram for realizations of a single RV'</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="vs">r'Histogram for realizations of sample variance </span><span class="dv">$</span><span class="vs">S</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">, sample size = %d'</span> <span class="op">%</span> sample_size)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>ax2.axvline(var, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'True variance'</span>)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>ax2.legend()</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

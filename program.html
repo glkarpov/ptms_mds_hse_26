@@ -99,6 +99,34 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-consultations .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-number','listing-lectures','listing-notes',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-title","listing-number","listing-lectures","listing-notes"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-consultations'] = new List('listing-consultations', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-homework .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -268,9 +296,37 @@ window.Quarto = {
 
     <h3 class="anchored">Занятие 13</h3>
     <p>
-        <a href="./notes/notes_class_13.pdf">📝 Заметки</a>
+        <a href="./lectures/lecture_13.pdf">📄 Презентация</a> • <a href="./notes/class_13.pdf">📝 Заметки</a>
     </p>
-    <p>Консультация. Дискретные случайные величины. Практическая сессия.</p>
+    <p>Нормальное распределение.</p>
+
+    <h3 class="anchored">Занятие 14</h3>
+    <p>
+        <a href="./notes/class_14_group1.pdf">📝 Заметки 1 поток</a> • <a href="./notes/class_14_group2.pdf">📝 Заметки 2 поток</a>
+    </p>
+    <p>Нормальное распределение. Практическая сессия.</p>
+
+    <h3 class="anchored">Занятие 15</h3>
+    <p>
+        <a href="./lectures/lecture_15.pdf">📄 Презентация</a> • <a href="./notes/class_15.pdf">📝 Заметки</a>
+    </p>
+    <p>Введение в задачу статистики. Выборочные распределения.</p>
+
+<div class="listing-no-matching d-none">Нет подходящих элементов</div>
+</div>
+<div id="listing-consultations" class="quarto-listing quarto-listing-container-custom">
+
+    <h3 class="anchored">Консультация 1</h3>
+    <p>
+        <a href="./lectures/lecture_add_1.pdf">📄 Презентация</a> • <a href="./notes/notes_add_class_1.pdf">📝 Заметки</a>
+    </p>
+    <p>Дискретные случайные величины. Практическая сессия.</p>
+
+    <h3 class="anchored">Консультация 2</h3>
+    <p>
+        <a href="./lectures/lecture_add_2.pdf">📄 Презентация</a> • <a href="./notes/notes_add_class_2.pdf">📝 Заметки</a>
+    </p>
+    <p>Центральная предельная теорема</p>
 
 <div class="listing-no-matching d-none">Нет подходящих элементов</div>
 </div>
