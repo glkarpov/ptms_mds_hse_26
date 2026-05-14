@@ -76,3 +76,14 @@
   number: 15
   lectures: /lectures/lecture_15.pdf
   notes: /notes/class_15.pdf
+
+- title: Выборочные распределения. Точечные оценки.
+  number: 16
+  lectures: /lectures/lecture_16.pdf
+  notes: /notes/class_16.pdf
+
+- title: Выборочные распределения. Точечные оценки. Практическая сессия.
+  number: 17
+  lectures: /lectures/lecture_17.pdf
+  notes_1group: /notes/class_17_group1.pdf
+  notes_2group: /notes/class_17_group2.pdf
