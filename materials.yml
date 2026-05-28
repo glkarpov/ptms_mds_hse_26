@@ -92,3 +92,14 @@
   number: 18
   lectures: /lectures/lecture_18.pdf
   notes: /notes/class_18.pdf
+
+- title: Доверительные интервалы II.
+  number: 19
+  lectures: /lectures/lecture_19.pdf
+  notes: /notes/lecture_19.pdf
+
+- title: Доверительные интервалы III.
+  number: 20
+  lectures: /lectures/lecture_20.pdf
+  notes_1group: /notes/class_20_group1.pdf
+  notes_2group: /notes/class_20_group2.pdf
