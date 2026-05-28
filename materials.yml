@@ -97,6 +97,11 @@
   number: 19
   lectures: /lectures/lecture_19.pdf
   notes: /notes/lecture_19.pdf
+  download:
+    - label: 🚀 Colab (EN)
+      url: https://colab.research.google.com/github/glkarpov/ptms_mds_hse_26/blob/main/notebooks/confidence_intervals_MC_sim.ipynb
+    - label: 🚀 Colab (RU)
+      url: https://colab.research.google.com/github/glkarpov/ptms_mds_hse_26/blob/main/notebooks/confidence_intervals_MC_sim_ru.ipynb
 
 - title: Доверительные интервалы III.
   number: 20

@@ -10,7 +10,15 @@
             if(item.notes_1group) { links.push('<a href="' + item.notes_1group + '">📝 Заметки 1 поток</a>'); }
             if(item.notes_2group) { links.push('<a href="' + item.notes_2group + '">📝 Заметки 2 поток</a>'); }
             if(item.youtube) { links.push('<a href="' + item.youtube + '">▶️ Youtube</a>'); }
-            if(item.download) { links.push('<a href="' + item.download + '">💿 Скачать</a>'); }
+            if(item.download) {
+                if(Array.isArray(item.download)) {
+                    for (const dl of item.download) {
+                        if(dl.url) { links.push('<a href="' + dl.url + '">' + (dl.label || '💿 Скачать') + '</a>'); }
+                    }
+                } else {
+                    links.push('<a href="' + item.download + '">💿 Скачать</a>');
+                }
+            }
             print(links.join(' • '));
         %>
     </p>
